@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <link href="./styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <audio height="0" width="0" id="music" src=""></audio>
+    <section class="title-bar">
+      <div class="title-bar-drag-area">
+      </div>
+    </section>
+    <div class="content-wrapper">
+      <div class="song-image" >
+        <img src="./assets/no-image.png" class="player-img">
+      </div>
+      <div class="song-info">
+        <h2 class="song-title-author">-------- - --------</h1>
+        <h3 class="song-album">-------</h3>
+        <div class="progress-container">
+          <div class="progress">
+            <span class="progress-start progress-label">00:00</span>
+            <div class="progress-bar">
+              <div class="progress-now"></div>
+            </div>
+            <span class="progress-end progress-label">00:00</span>
+          </div>
+        </div> 
+        <div class="button-container">
+          <img src="./assets/select.svg" class="select-button">
+          <img src="./assets/play.svg" alt="Play Pause" class="play-pause-button">
+        </div> 
+      </div>
+      
+    </div>
+    <script src="./renderer.js"></script>
+    <script src="./play-control.js"></script>
+  </body>
+</html>
+
