@@ -8,10 +8,17 @@ const selectButton = document.querySelector('.select-button')
 const titleAuthor = document.querySelector('.song-title-author')
 const album = document.querySelector('.song-album')
 const songImage = document.querySelector('.player-img')
+const closeButton = document.getElementById('close')
+const minimizeButton = document.getElementById('minimize')
 
-const { dialog } = require('@electron/remote')
+const { dialog, getCurrentWindow } = require('@electron/remote')
 const music = require('music-metadata')
 
+/**
+ * Convert seconds to mm:ss
+ * @param {Int} value the current time of the song (in seconds)
+ * @returns the time in minutes and seconds as a string
+ */
 function conversion (value) {
   let minute = Math.floor(value / 60)
   minute = minute.toString().length === 1 ? ('0' + minute) : minute
@@ -111,6 +118,20 @@ setInterval(() => {
   start.innerHTML = conversion(audio.currentTime)
   now.style.width = audio.currentTime / audio.duration.toFixed(3) * 100 + '%'
 }, 1000)
+
+closeButton.addEventListener('click', function(event) {
+    pause();
+
+    // close the window
+    getCurrentWindow().close();
+})
+
+minimizeButton.addEventListener('click', function(event) {
+    pause();
+
+    // minimize the window
+    getCurrentWindow().minimize();
+})
 
 dialog.showOpenDialog({
     properties: ['openFile'],
