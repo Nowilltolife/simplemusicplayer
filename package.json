@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "@electron/remote": "^2.0.8",
-    "music-metadata": "^7.12.3"
+    "music-metadata": "^7.12.4"
   }
 }
